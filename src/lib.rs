@@ -22,7 +22,10 @@ impl<'s> Iterator for ClawGames<'s> {
         };
         let a_movement_substring = a_line.strip_prefix("Button A:").unwrap();
         let a_movement = parse_button_row(a_movement_substring, '+');
-        let b_movement_substring = dbg!(self.lines.next().unwrap())
+        let b_movement_substring = self
+            .lines
+            .next()
+            .unwrap()
             .strip_prefix("Button B:")
             .unwrap();
         let b_movement = parse_button_row(b_movement_substring, '+');
